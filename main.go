@@ -7,6 +7,7 @@ import (
 	"net/http"
 	"os"
 	"strings"
+	"time"
 )
 
 type channels struct {
@@ -49,6 +50,7 @@ func main() {
 
 	for _, c := range myChannels {
 		if strings.HasPrefix(c.Name, channelStr) {
+			time.Sleep(1100 * time.Millisecond)
 			err := inviteChannel(c.Id)
 			if err != nil {
 				fmt.Println(err)
